@@ -26,8 +26,8 @@ export default {
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
-background: linear-gradient(100deg, #b5e2fa 0%, #f9f7f3 100%);}
-
+  background: linear-gradient(100deg, #589ffc 0%, #8abfea 100%);
+}
 #app {
   min-height: 100vh;
 }

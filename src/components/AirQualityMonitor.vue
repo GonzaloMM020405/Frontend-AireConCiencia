@@ -468,187 +468,77 @@ export default {
 .app-container {
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
+  padding: 10px;
 }
 
-/* Header Styles Mejorado */
+/* Header Styles Mejorado para Móviles */
 .app-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  padding: 0 10px;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.header-buttons {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.map-btn {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Location Card Mejorada */
-.location-card {
-  display: flex;
   flex-direction: column;
-  height: fit-content;
-}
-
-.location-info {
-  margin-bottom: 20px;
-}
-
-.location-name {
-  font-size: 1.6em;
-  font-weight: bold;
-  color: #667eea;
-  margin-bottom: 8px;
-}
-
-.sensor-info {
-  font-size: 1em;
-  color: #6c757d;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.coordinates {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.coord-item {
-  background: #f8f9fa;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.9em;
-  color: #495057;
-}
-
-/* Mapa */
-.map-container {
-  margin-top: 15px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.sensor-map {
-  height: 250px;
-  width: 100%;
-  border-radius: 12px;
-}
-
-.map-placeholder {
-  height: 250px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  background: #f8f9fa;
-  border-radius: 12px;
-  color: #6c757d;
-  font-size: 1.1em;
-}
-
-/* Popup del mapa personalizado */
-.map-popup {
+  margin-bottom: 20px;
+  padding: 0 5px;
+  gap: 15px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.map-popup strong {
-  color: #667eea;
-}
-
-/* Marcador personalizado */
-.sensor-marker {
-  background: transparent !important;
-  border: none !important;
-  font-size: 24px;
-  text-align: center;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header-buttons {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .refresh-btn {
-    flex: 1;
-    min-width: 200px;
-  }
-  
-  .sensor-map {
-    height: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .coordinates {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .sensor-map {
-    height: 180px;
-  }
 }
 
 .logo-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  flex: 1;
-  min-width: 300px;
+  gap: 10px;
+  width: 100%;
 }
 
 .logo {
-  width: 150px;
-  padding: 6px;
+  width: 120px;
+  padding: 4px;
   height: auto;
   border-radius: 4px;
   background-color: white;
 }
 
 .title-section h1 {
-  font-size: 2.2em;
+  font-size: 1.8em;
   font-weight: 700;
   color: white;
   margin-bottom: 5px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
 }
 
 .tagline {
-  font-size: 1.1em;
+  font-size: 1em;
   color: rgba(255, 255, 255, 0.95);
   font-weight: 400;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .refresh-btn {
   background: rgba(255, 255, 255, 0.25);
   border: 2px solid rgba(255, 255, 255, 0.4);
   color: white;
-  padding: 14px 28px;
+  padding: 12px 20px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 600;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
+  width: 100%;
 }
 
 .refresh-btn:hover:not(:disabled) {
@@ -664,114 +554,190 @@ export default {
 }
 
 .btn-icon {
-  font-size: 1.3em;
+  font-size: 1.2em;
+}
+
+.map-btn {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Main Content */
 .main-content {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
-/* Card Base Styles */
+/* Card Base Styles - Optimizado para móviles */
 .card {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 0;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   transition: all 0.3s ease;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
 }
 
 .card-header {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 22px 28px;
+  padding: 18px 20px;
   border-bottom: 2px solid #e9ecef;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .card-header h2,
 .card-header h3 {
   color: #2c3e50;
   margin: 0;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 600;
 }
 
 .card-header h2 {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .card-content {
-  padding: 28px;
+  padding: 20px;
 }
 
 .card-icon {
-  font-size: 1.6em;
-  width: 28px;
+  font-size: 1.4em;
+  width: 24px;
   text-align: center;
 }
 
-/* Top Section */
+/* Top Section - Reorganizado para móviles */
 .top-section {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 25px;
-  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-/* Main Status Card - Layout Mejorado */
+/* Location Card Mejorada para móviles */
+.location-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-info {
+  margin-bottom: 15px;
+}
+
+.location-name {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.sensor-info {
+  font-size: 0.9em;
+  color: #6c757d;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.coordinates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.coord-item {
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85em;
+  color: #495057;
+  text-align: center;
+}
+
+/* Mapa optimizado para móviles */
+.map-container {
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sensor-map {
+  height: 200px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.map-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+  color: #6c757d;
+  font-size: 1em;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Main Status Card - Reorganizado para móviles */
 .main-status-card {
-  min-height: 400px; /* Aumentado para acomodar la imagen */
+  min-height: auto;
 }
 
 .status-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 30px;
-  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
   align-items: center;
 }
 
-/* Sección de Imagen Visual */
+/* Sección de Imagen Visual optimizada */
 .visual-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
+  order: -1;
 }
 
 .status-image {
   width: 100%;
-  max-width: 280px;
+  max-width: 200px;
   height: auto;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   object-fit: contain;
 }
 
 .image-caption {
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 700;
   color: #2c3e50;
   text-align: center;
-  padding: 8px 16px;
+  padding: 6px 14px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Sección de Datos */
+/* Sección de Datos optimizada */
 .data-section {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
+  width: 100%;
 }
 
 .aqi-section {
@@ -780,8 +746,8 @@ export default {
 }
 
 .aqi-circle {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -789,33 +755,34 @@ export default {
   justify-content: center;
   color: white;
   font-weight: bold;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  border: 3px solid rgba(255, 255, 255, 0.8);
 }
 
 .aqi-value {
-  font-size: 2.8em;
+  font-size: 2.2em;
   line-height: 1;
   font-weight: 800;
 }
 
 .aqi-label {
-  font-size: 1em;
+  font-size: 0.9em;
   opacity: 0.95;
-  margin-top: 5px;
+  margin-top: 4px;
   font-weight: 600;
   text-align: center;
 }
 
 .status-info {
-  text-align: left;
+  text-align: center;
+  width: 100%;
 }
 
 .pm-values {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background: #f8f9fa;
-  padding: 18px;
-  border-radius: 12px;
+  padding: 15px;
+  border-radius: 10px;
   border-left: 4px solid #667eea;
 }
 
@@ -823,8 +790,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
-  padding: 6px 0;
+  margin-bottom: 6px;
+  padding: 5px 0;
 }
 
 .pm-item:last-child {
@@ -834,92 +801,83 @@ export default {
 .pm-label {
   color: #495057;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .pm-number {
   color: #2c3e50;
   font-weight: 700;
-  font-size: 1.1em;
+  font-size: 1em;
   background: rgba(102, 126, 234, 0.1);
-  padding: 4px 12px;
-  border-radius: 8px;
+  padding: 3px 10px;
+  border-radius: 6px;
 }
 
 .description {
   color: #495057;
-  line-height: 1.6;
-  font-size: 1.05em;
+  line-height: 1.5;
+  font-size: 0.95em;
   font-weight: 500;
+  text-align: center;
 }
 
 .update-time {
-  font-size: 0.95em;
+  font-size: 0.85em;
   color: #6c757d;
   font-weight: 500;
   background: rgba(255, 255, 255, 0.7);
-  padding: 4px 12px;
-  border-radius: 12px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  text-align: center;
 }
 
-/* Recommendation Card */
+/* Recommendation Card optimizada */
 .recommendation-card {
   display: flex;
   flex-direction: column;
-  height: fit-content;
 }
 
 .recommendation-text {
   color: #495057;
-  line-height: 1.6;
-  font-size: 1.05em;
+  line-height: 1.5;
+  font-size: 0.95em;
   font-weight: 500;
   background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 15px;
+  border-radius: 10px;
   border-left: 4px solid #ffc107;
+  text-align: center;
 }
 
-/* Status Card Colors */
-.status-good .aqi-circle { background: linear-gradient(135deg, #4CAF50, #45a049); }
-.status-moderate .aqi-circle { background: linear-gradient(135deg, #FFC107, #FF8F00); }
-.status-unhealthy-sensitive .aqi-circle { background: linear-gradient(135deg, #FF9800, #F57C00); }
-.status-unhealthy .aqi-circle { background: linear-gradient(135deg, #F44336, #D32F2F); }
-.status-very-unhealthy .aqi-circle { background: linear-gradient(135deg, #9C27B0, #7B1FA2); }
-.status-hazardous .aqi-circle { background: linear-gradient(135deg, #795548, #5D4037); }
-
-/* Bottom Section */
+/* Bottom Section - Reorganizado para móviles */
 .bottom-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-li{
-  font-color: #0000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .action-card {
   text-align: center;
-  min-height: 160px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 20px;
+  padding: 15px;
   background-color: #e3f2fd;
+  border-radius: 16px;
 }
 
 .action-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .action-card .card-icon {
-  font-size: 3em;
-  margin-bottom: 18px;
+  font-size: 2.5em;
+  margin-bottom: 12px;
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -930,237 +888,262 @@ li{
 
 .action-card h3 {
   color: #2c3e50;
-  margin-bottom: 10px;
-  font-size: 1.3em;
+  margin-bottom: 8px;
+  font-size: 1.1em;
   font-weight: 600;
 }
 
 .action-card p {
   color: #6c757d;
-  font-size: 0.95em;
-  line-height: 1.5;
+  font-size: 0.85em;
+  line-height: 1.4;
 }
 
-/* Responsive Design Mejorado */
-@media (max-width: 1200px) {
-  .top-section {
-    grid-template-columns: 1fr 1.5fr 1fr;
-    gap: 20px;
-  }
-  
-  .status-content {
-    grid-template-columns: 1fr 1.5fr;
-    gap: 25px;
-  }
-}
+/* Status Card Colors */
+.status-good .aqi-circle { background: linear-gradient(135deg, #4CAF50, #45a049); }
+.status-moderate .aqi-circle { background: linear-gradient(135deg, #FFC107, #FF8F00); }
+.status-unhealthy-sensitive .aqi-circle { background: linear-gradient(135deg, #FF9800, #F57C00); }
+.status-unhealthy .aqi-circle { background: linear-gradient(135deg, #F44336, #D32F2F); }
+.status-very-unhealthy .aqi-circle { background: linear-gradient(135deg, #9C27B0, #7B1FA2); }
+.status-hazardous .aqi-circle { background: linear-gradient(135deg, #795548, #5D4037); }
 
-@media (max-width: 1024px) {
-  .top-section {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .bottom-section {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .status-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 25px;
-    padding: 25px;
-  }
-
-  .visual-section {
-    order: -1; /* La imagen va primero en móvil */
-  }
-
-  .status-info {
-    text-align: center;
-  }
-
-  .pm-item {
-    justify-content: space-around;
-  }
-}
-
-@media (max-width: 768px) {
-  .app-container {
-    padding: 15px;
-  }
-
-  .app-header {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .logo-container {
-    flex-direction: column;
-    gap: 15px;
-    min-width: auto;
-  }
-
-  .title-section h1 {
-    font-size: 1.8em;
-  }
-
-  .refresh-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 16px 28px;
-  }
-
-  .bottom-section {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .top-section {
-    gap: 20px;
-  }
-
-  .aqi-circle {
-    width: 120px;
-    height: 120px;
-  }
-
-  .aqi-value {
-    font-size: 2.2em;
-  }
-
-  .status-image {
-    max-width: 150px;
-  }
-
-  .image-caption {
-    font-size: 1.2em;
-  }
-
-  .card-header {
-    padding: 20px 25px;
-  }
-
-  .card-content {
-    padding: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  .app-container {
-    padding: 10px;
-  }
-
-  .status-content {
-    padding: 20px 15px;
-    gap: 20px;
-  }
-
-  .aqi-circle {
-    width: 100px;
-    height: 100px;
-  }
-
-  .aqi-value {
-    font-size: 1.8em;
-  }
-
-  .status-image {
-    max-width: 120px;
-  }
-
-  .image-caption {
-    font-size: 1.1em;
-  }
-
-  .pm-values {
-    padding: 15px;
-  }
-
-  .pm-item {
-    flex-direction: column;
-    gap: 5px;
-    text-align: center;
-  }
-}
-
+/* Estilos para listas en modales */
 li {
-  color: #2563eb; /* Azul moderno (Tailwind blue-600) */
+  color: #2563eb;
   font-weight: 500;
-  font-size: 1.05em;
-  margin-bottom: 10px;
+  font-size: 0.95em;
+  margin-bottom: 8px;
   transition: color 0.3s ease, transform 0.2s ease;
-    text-align:left;
-
+  text-align: left;
+  line-height: 1.4;
 }
 
 li:hover {
-  color: #1e40af; /* Azul más oscuro al pasar el mouse */
-  transform: translateX(5px);
+  color: #1e40af;
+  transform: translateX(3px);
 }
+
 .titulo-azul {
-  color: #1e3a8a; /* azul marino (Tailwind blue-900) */
-  font-size: 1.5em;
+  color: #1e3a8a;
+  font-size: 1.3em;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-align: center;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
+
+/* Modales optimizados para móviles */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 40px; /* agrega espacio alrededor del contenedor */
+  padding: 20px;
   box-sizing: border-box;
-  
-  
+  overflow-y: auto;
 }
 
-.action-card.card.aprender {
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  max-width: 500px;
-}
-
-.action-card.card.reporte {
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  max-width: 500px;
-
-}
-
+.action-card.card.aprender,
+.action-card.card.reporte,
 .action-card.card.recomendaciones {
-  padding: 30px;
-  border-radius: 20px;
+  padding: 20px;
+  border-radius: 16px;
   text-align: center;
-  max-width: 500px;
-
+  max-width: 100%;
+  width: 100%;
+  margin: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .close-btn {
-  margin-top: 20px;
-  padding: 10px 25px;
+  margin-top: 15px;
+  padding: 10px 20px;
   border: none;
   background-color: #4a90e2;
   color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s;
+  font-size: 0.9em;
+  width: 100%;
+  max-width: 200px;
 }
 
 .close-btn:hover {
   background-color: #357abd;
 }
 
+/* Popup del mapa personalizado */
+.map-popup {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+}
+
+.map-popup strong {
+  color: #667eea;
+}
+
+/* Marcador personalizado */
+.sensor-marker {
+  background: transparent !important;
+  border: none !important;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Media Queries para tablets */
+@media (min-width: 768px) {
+  .app-container {
+    padding: 15px;
+  }
+  
+  .app-header {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .logo-container {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .header-buttons {
+    flex-direction: row;
+    width: auto;
+  }
+  
+  .refresh-btn {
+    width: auto;
+    min-width: 180px;
+  }
+  
+  .top-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+  }
+  
+  .status-content {
+    grid-template-columns: 1fr 2fr;
+    flex-direction: row;
+  }
+  
+  .visual-section {
+    order: 0;
+  }
+  
+  .bottom-section {
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+  }
+  
+  .coordinates {
+    flex-direction: row;
+  }
+}
+
+/* Media Queries para desktop */
+@media (min-width: 1024px) {
+  .app-container {
+    padding: 20px;
+  }
+  
+  .title-section h1 {
+    font-size: 2.2em;
+  }
+  
+  .status-image {
+    max-width: 280px;
+  }
+  
+  .aqi-circle {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .aqi-value {
+    font-size: 2.8em;
+  }
+}
+
+/* Mejoras específicas para pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .app-container {
+    padding: 8px;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .status-image {
+    max-width: 150px;
+  }
+  
+  .aqi-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .aqi-value {
+    font-size: 1.8em;
+  }
+  
+  .action-card {
+    min-height: 120px;
+    padding: 12px;
+  }
+  
+  .action-card h3 {
+    font-size: 1em;
+  }
+}
+
+/* Mejora de accesibilidad para touch */
+@media (hover: none) {
+  .action-card:hover {
+    transform: none;
+  }
+  
+  .refresh-btn:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  li:hover {
+    transform: none;
+  }
+}
+
+/* Soporte para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-header {
+    margin-bottom: 10px;
+  }
+  
+  .top-section {
+    margin-bottom: 10px;
+  }
+  
+  .card {
+    margin-bottom: 10px;
+  }
+  
+  .sensor-map {
+    height: 150px;
+  }
+  
+  .map-placeholder {
+    height: 150px;
+  }
+}
 </style>
