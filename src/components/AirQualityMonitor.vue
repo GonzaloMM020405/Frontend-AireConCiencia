@@ -224,10 +224,10 @@ export default {
       loading: false,
       loadingLocation: false,
       showLearningModal: false,
-      showReport:false,
+      showReport: false,
       showTips: false,
       error: null,
-      lastUpdate: 'Haz clic en Actualizar Datos',
+      lastUpdate: 'Cargando datos...',
       map: null,
       marker: null,
       statusImages: {
@@ -257,35 +257,39 @@ export default {
     },
     hasLocationData() {
       return this.locationData.latitude && this.locationData.longitude;
+    },
+    // URLs base desde variables de entorno
+    backendBaseUrl() {
+      return import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:7777';
     }
   },
   async mounted() {
+    console.log('Backend URL:', this.backendBaseUrl);
     await this.fetchInitialData();
   },
   methods: {
     showLearning() {
-    this.showLearningModal = true;
+      this.showLearningModal = true;
     },
     closeLearning() {
-    this.showLearningModal = false;
+      this.showLearningModal = false;
     },
-    openReport() {           // 👈 cambiamos el nombre del método
-    this.showReport = true;
-  },
-  closeReport() {
-    this.showReport = false;
-  },
-   openTips() {           // 👈 cambiamos el nombre del método
-    this.showTips = true;
-  },
-
-  
-  closeTips() {
-    this.showTips= false;
-  },
+    openReport() {
+      this.showReport = true;
+    },
+    closeReport() {
+      this.showReport = false;
+    },
+    openTips() {
+      this.showTips = true;
+    },
+    closeTips() {
+      this.showTips = false;
+    },
     async fetchInitialData() {
       try {
         console.log('Iniciando carga automática de datos...');
+        console.log('Backend URL:', this.backendBaseUrl);
         
         // Cargar datos del sensor y ubicación en paralelo
         await Promise.all([
@@ -305,7 +309,9 @@ export default {
       this.error = null;
       
       try {
-        const backendUrl = 'http://127.0.0.1:7777/api/aqi/combined';
+        const backendUrl = `${this.backendBaseUrl}/api/aqi/combined`;
+        console.log('Fetching sensor data from:', backendUrl);
+        
         const response = await fetch(backendUrl);
         
         if (!response.ok) {
@@ -319,7 +325,10 @@ export default {
       } catch (err) {
         console.error('Error fetching sensor data:', err);
         this.error = `No se pudieron cargar los datos: ${err.message}`;
-        alert(this.error);
+        // No mostrar alerta automáticamente en producción
+        if (import.meta.env.DEV) {
+          alert(this.error);
+        }
       } finally {
         this.loading = false;
       }
@@ -329,7 +338,9 @@ export default {
       this.loadingLocation = true;
       
       try {
-        const backendUrl = 'http://127.0.0.1:7777/api/location';
+        const backendUrl = `${this.backendBaseUrl}/api/location`;
+        console.log('Fetching location data from:', backendUrl);
+        
         const response = await fetch(backendUrl);
         
         if (!response.ok) {
@@ -339,13 +350,16 @@ export default {
         const data = await response.json();
         this.locationData = data;
 
-                setTimeout(() => {
+        setTimeout(() => {
           this.updateMap();
         }, 100);
         
       } catch (err) {
         console.error('Error fetching location data:', err);
-        alert(`No se pudieron cargar los datos de ubicación: ${err.message}`);
+        // No mostrar alerta automáticamente en producción
+        if (import.meta.env.DEV) {
+          alert(`No se pudieron cargar los datos de ubicación: ${err.message}`);
+        }
       } finally {
         this.loadingLocation = false;
       }
@@ -433,7 +447,7 @@ export default {
 
     getStatusDescription() {
       const pmAvg = this.sensorValues.pm_avg;
-      if (!pmAvg) return 'Haz clic en "Actualizar Datos" para obtener la información más reciente.';
+      if (!pmAvg) return 'Cargando información más reciente...';
       
       if (pmAvg <= 12) return 'La calidad del aire es ideal para actividades al aire libre.';
       if (pmAvg <= 35) return 'Calidad aceptable, ideal para la mayoría de actividades.';
@@ -453,13 +467,7 @@ export default {
       if (pmAvg <= 150) return 'Considera realizar actividades bajo techo.';
       if (pmAvg <= 250) return 'Realiza actividades bajo techo.';
       return 'Evita actividades al aire libre. Permanece en interiores.';
-    },
-
-    showRecommendations() {
-      alert('Aquí se mostrarán las recomendaciones completas según la calidad del aire actual.');
-    },
-
-    
+    }
   }
 }
 </script>
