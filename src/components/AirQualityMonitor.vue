@@ -109,24 +109,87 @@
 
       <!-- Sección Inferior: Acciones y Más Información -->
       <div class="bottom-section">
-        <div class="action-card card recomendaciones" @click="showRecommendations">
+        <div class="action-card card recomendaciones" @click="openTips">
           <div class="card-icon">📋</div>
           <h3>Ver Recomendaciones</h3>
           <p>Guía completa según calidad del aire</p>
         </div>
-
+      
         <div class="action-card card aprender" @click="showLearning">
           <div class="card-icon">📚</div>
           <h3>Aprender sobre el aire</h3>
           <p>Información educativa</p>
         </div>
 
-        <div class="action-card card incidencia" @click="reportIncident">
+
+        <div class="action-card card reporte" @click="openReport">
           <div class="card-icon">⚠️</div>
-          <h3>Reportar incidencia</h3>
-          <p>Notificar problemas</p>
-        </div>
+        <h3>Reportar incidencia</h3>
+        <p>Da clic aqui</p>
+        </div>   
+
+        <div v-if="showTips" class="modal-overlay" @click.self="closeTips">
+        <div class="action-card card recomendaciones">
+        <h3 class="titulo-azul">Recomendaciones según la calidad del aire</h3>
+        <p class="descripcion-reporte">
+          Estas sugerencias se basan en el promedio actual de partículas PM2.5 detectadas:
+        </p>
+
+        <ul class="lista-recomendaciones">
+          <li>Ideal para actividades al aire libre y deportes.</li>
+          <li>Calidad aceptable, ideal para la mayoría de actividades.</li>
+          <li>Grupos sensibles deben considerar reducir actividades intensas al aire libre.</li>
+          <li>Todas las personas pueden comenzar a experimentar efectos en la salud.</li>
+          <li>Advertencia de condiciones sanitarias graves</li>
+          <li>Alerta de emergencia sanitaria. Evitar actividades al aire libre.</li>
+          
+        </ul>
+
+        <button class="close-btn" @click="closeTips">Cerrar</button>
       </div>
+    </div>
+      
+
+           <!-- Modal para reportar incidenciaMás -->
+<div v-if="showReport" class="modal-overlay" @click.self="closeReport">
+  <div class="action-card card reporte">
+    <h3 class="titulo-azul">Genera tu reporte </h3>
+      <ul>
+    <li>🏫Si detectas algún problema relacionado con la calidad del aire, el sistema o los datos mostrados, puedes enviarnos un reporte detallando la incidencia.  
+  Escríbeno</li>
+    <li>
+    <li>
+      <a>medioambiente@saltillo.gob.mx</a>
+
+    </li>
+    </li>
+  </ul>
+    <button class="close-btn" @click="closeReport">Cerrar</button>
+  </div>
+        </div>
+        
+      </div>
+       <!-- Modal para Aprender Más -->
+<div v-if="showLearningModal" class="modal-overlay" @click.self="closeLearning">
+  <div class="action-card card aprender">
+    <h3 class="titulo-azul">Aprende de la calidad del Aire en tu Zona</h3>
+   
+      <ul>
+       <li>
+ Todos los días, los seres humanos respiramos alrededor de 20,000 veces. Una persona adulta inhala de 13.000 a 15.000 litros de aire por día. </li>
+    <li >🌫️ <strong>PM2.5</strong> son partículas diminutas que pueden llegar hasta los pulmones y el torrente sanguíneo.</li>
+    <li>🌞 Los días soleados con poco viento pueden aumentar los niveles de contaminación.</li>
+    <li>🌿 Plantar árboles y mantener áreas verdes mejora la calidad del aire local.</li>
+    <li>🏫 Las escuelas con buena ventilación reducen los casos de alergias y fatiga en los estudiantes.</li>
+    <li>
+      <a href='https://www.earthdata.nasa.gov/data/instruments/tempo'>Accede a datos oficiales de la NASA</a>
+
+    </li>
+  </ul>
+
+    <button class="close-btn" @click="closeLearning">Cerrar</button>
+  </div>
+</div> 
     </main>
   </div>
 </template>
@@ -160,6 +223,9 @@ export default {
       locationData: {},
       loading: false,
       loadingLocation: false,
+      showLearningModal: false,
+      showReport:false,
+      showTips: false,
       error: null,
       lastUpdate: 'Haz clic en Actualizar Datos',
       map: null,
@@ -197,6 +263,26 @@ export default {
     await this.fetchInitialData();
   },
   methods: {
+    showLearning() {
+    this.showLearningModal = true;
+    },
+    closeLearning() {
+    this.showLearningModal = false;
+    },
+    openReport() {           // 👈 cambiamos el nombre del método
+    this.showReport = true;
+  },
+  closeReport() {
+    this.showReport = false;
+  },
+   openTips() {           // 👈 cambiamos el nombre del método
+    this.showTips = true;
+  },
+
+  
+  closeTips() {
+    this.showTips= false;
+  },
     async fetchInitialData() {
       try {
         console.log('Iniciando carga automática de datos...');
@@ -373,13 +459,7 @@ export default {
       alert('Aquí se mostrarán las recomendaciones completas según la calidad del aire actual.');
     },
 
-    showLearning() {
-      alert('Sección educativa sobre calidad del aire.');
-    },
-
-    reportIncident() {
-      alert('Formulario para reportar incidencias.');
-    }
+    
   }
 }
 </script>
@@ -815,6 +895,9 @@ export default {
   gap: 25px;
 }
 
+li{
+  font-color: #0000;
+}
 
 .action-card {
   text-align: center;
@@ -1001,4 +1084,83 @@ export default {
     text-align: center;
   }
 }
+
+li {
+  color: #2563eb; /* Azul moderno (Tailwind blue-600) */
+  font-weight: 500;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+    text-align:left;
+
+}
+
+li:hover {
+  color: #1e40af; /* Azul más oscuro al pasar el mouse */
+  transform: translateX(5px);
+}
+.titulo-azul {
+  color: #1e3a8a; /* azul marino (Tailwind blue-900) */
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 40px; /* agrega espacio alrededor del contenedor */
+  box-sizing: border-box;
+  
+  
+}
+
+.action-card.card.aprender {
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+}
+
+.action-card.card.reporte {
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+
+}
+
+.action-card.card.recomendaciones {
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+
+}
+
+.close-btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background-color: #357abd;
+}
+
 </style>
