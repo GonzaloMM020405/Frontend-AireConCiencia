@@ -1,5 +1,22 @@
-# Vue 3 + Vite
+# AireConCiencia Frontend
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Set Up the Development Environment
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+1. Clone the repository:
+```sh
+git clone https://github.com/GonzaloMM020405/Frontend-AireConCiencia.git
+cd Frontend-AireConCiencia
+```
+2. Install `Node.js` from the [official website](https://nodejs.org/es).
+3. Install `Vue CLI` globally:
+```sh
+npm install -g @vue/cli@5.0.8
+```
+4. Enter the project folder and install the dependencies:
+```sh
+npm install
+```
+5. Verify that everything is working correctly:
+```sh
+npm run dev
+```
